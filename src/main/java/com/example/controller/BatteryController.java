@@ -26,7 +26,11 @@ public class BatteryController {
 	@Autowired
 	public BatteryService batteryService;
 	
-	
+	/**
+	This api used to save all the battery details in h2 database
+	@param in request body we will send list of batteries details like name,postcode and watt capacity
+	@return this api return success and sends message as "Battery creation was successfull" or error code 404
+	*/
 	@PostMapping("/batteries")
 	public ResponseEntity<?> saveBattery(@RequestBody List<Battery> batteries) {
 
@@ -45,6 +49,11 @@ public class BatteryController {
 		return ResponseEntity.ok().body("Battery creation was successfull");
 	}
 	
+	/**
+	This api used to get list of names of batteries in sorting order and also total and average watt capacity 
+	@param postcode will send as a param
+	@return this api return list of names of batteries in sorting order and also total and average watt capacity
+	*/
 	@GetMapping("/batteries/{postcode}")
 	public JSONArray getDetailsByPostCode(@PathVariable(value = "postcode") String postcode){
 		try {
