@@ -52,7 +52,8 @@ public class BatteryController {
 	/**
 	This api used to get list of names of batteries in sorting order and also total and average watt capacity 
 	@param postcode will send as a param
-	@return this api return list of names of batteries in sorting order and also total and average watt capacity
+	@return this api return list of names of batteries in sorting order and also total and average watt capacity if the passcode exits otherwise
+	 it returns empty value
 	*/
 	@GetMapping("/batteries/{postcode}")
 	public JSONArray getDetailsByPostCode(@PathVariable(value = "postcode") String postcode){
